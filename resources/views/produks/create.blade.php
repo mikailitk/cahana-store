@@ -53,8 +53,7 @@
                 <div class="form-group row">
                     <label for="desc" class="col-sm-2 col-form-label">Deskripsi</label>
                     <div class="col-sm-10">
-                        <textarea name="desc_produk" class="form-control" id="desc" placeholder="Deskripsi Produk">
-                        </textarea>
+                        <textarea name="desc_produk" class="form-control" id="desc" placeholder="Deskripsi Produk"></textarea>
                     </div>
                 </div>
                 <div class="form-group row">
