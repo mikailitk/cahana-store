@@ -295,22 +295,7 @@ return [
         [
             'text' => 'Home',
             'url'  => '',
-            'icon_color' => 'primary',
-        ],
-        [
-            'text' => 'Produk Ikan',
-            'url'  => 'produks/create',
-            'icon_color' => 'primary',
-        ],
-        [
-            'text' => 'Produk Pelet',
-            'url'  => 'produks/create',
-            'icon_color' => 'primary',
-        ],
-        [
-            'text' => 'Produk Alat',
-            'url'  => 'produks/create',
-            'icon_color' => 'primary',
+            'icon' => 'fas fa-fw fa-home',
         ],
         ['header' => 'Manajemen Data'],
         [

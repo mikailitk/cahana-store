@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +16,11 @@ use App\Http\Controllers\ProdukController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.index');
-});
+
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/ikan', [DashboardController::class, 'ikan'])->name('ikan');
+Route::get('/pelet', [DashboardController::class, 'pelet'])->name('pelet');
+Route::get('/alat', [DashboardController::class, 'alat'])->name('alat');
 
 Auth::routes();  
 

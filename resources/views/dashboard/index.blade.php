@@ -19,10 +19,9 @@
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase" data-animation="animated fadeInDown">
-                            Tones of <br/><span class="color-red-v2">Shop UI Features</span><br/> designed
+                            <span class="color-red-v2">Betta</span><br/> Fish
                         </h2>
-                        <p class="carousel-subtitle-v2" data-animation="animated fadeInUp">Lorem ipsum dolor sit amet constectetuer diam <br/>
-                        adipiscing elit euismod ut laoreet dolore.</p>
+                        <p class="carousel-subtitle-v2" data-animation="animated fadeInUp">Toko Ikan Hias Beserta Alat-Alat Ikan</p>
                     </div>
                 </div>
             </div>
@@ -32,47 +31,30 @@
                 <div class="container">
                     <div class="carousel-position-four text-center">
                         <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
-                            Unlimted
+                            Kualitas Bagus
                         </h2>
                         <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-                            Layout Options
+                            Harga Murah
                         </p>
                         <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-                            Fully Responsive
+                            Proses Cepat
                         </p>
-                        <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
+                        <a class="carousel-btn" href="#best-seller-anchor" data-animation="animated fadeInUp">Belanja Sekarang</a>
                     </div>
-                    <img class="carousel-position-five animate-delay hidden-sm hidden-xs" src="{{ asset('assets/pages/img/shop-slider/slide2/price.png') }}" alt="Price" data-animation="animated zoomIn">
                 </div>
             </div>
 
             <!-- Third slide -->
-            <div class="item carousel-item-six">
-                <div class="container">
-                    <div class="carousel-position-four text-center">
-                        <span class="carousel-subtitle-v3 margin-bottom-15" data-animation="animated fadeInDown">
-                            Full Admin &amp; Frontend
-                        </span>
-                        <p class="carousel-subtitle-v4" data-animation="animated fadeInDown">
-                            eCommerce UI
-                        </p>
-                        <p class="carousel-subtitle-v3" data-animation="animated fadeInDown">
-                            Is Ready For Your Project
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Fourth slide -->
             <div class="item carousel-item-seven">
                 <div class="center-block">
                     <div class="center-block-wrap">
                         <div class="center-block-body">
                             <h2 class="carousel-title-v1 margin-bottom-20" data-animation="animated fadeInDown">
-                                The most <br/>
-                                wanted bijouterie
+                                Dapatkan Ikan Hias Yang <br/>
+                                Lebih Murah </br>
+                                Daripada Abang2 Ikan di Depan Sekolah 
                             </h2>
-                            <a class="carousel-btn" href="#" data-animation="animated fadeInUp">But It Now!</a>
+                            <a class="carousel-btn" href="#best-seller-anchor" data-animation="animated fadeInUp">Belanja Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -93,111 +75,104 @@
 <div class="main">
     <div class="container">
     <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
-    <div class="row margin-bottom-40">
+    <div class="row margin-bottom-40" id="best-seller-anchor">
         <!-- BEGIN SALE PRODUCT -->
         <div class="col-md-12 sale-product">
-        <h2>New Arrivals</h2>
+        <h2>Best Product</h2>
         <div class="owl-carousel owl-carousel5">
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model1.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model1.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                <div class="sticker sticker-sale"></div>
-            </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model2.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model2.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model6.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model6.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
+            @foreach($produks as $p)
             <div>
                 <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="{{ asset('assets/pages/img/products/model4.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
+                    <div class="pi-img-wrapper">
+                    <img src="/images/{{ $p->gambar_produk }}" class="img-responsive" alt="{{ $p->nama_produk }}">
                     <div>
-                    <a href="{{ asset('assets/pages/img/products/model4.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                        <a href="#product-pop-up-{{ $p->id }}" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
-                </div>
-                <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                <div class="sticker sticker-new"></div>
+                    </div>
+                    <h3><a href="shop-item.html">{{ $p->nama_produk }}</a></h3>
+                    <div class="pi-price">RP. {{ $p->harga_produk }}</div>
+                    <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
             </div>
+            @endforeach
+        </div>
+        </div>
+        <!-- END SALE PRODUCT -->
+    </div>
+    <!-- END SALE PRODUCT & NEW ARRIVALS -->
+    <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+    <div class="row margin-bottom-40" id="ikan-anchor">
+        <!-- BEGIN SALE PRODUCT -->
+        <div class="col-md-12 sale-product">
+        <h2>Ikan</h2>
+        <div class="owl-carousel owl-carousel5">
+            @foreach($ikans as $i)
             <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model5.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model5.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                    <img src="/images/{{ $i->gambar_produk }}" class="img-responsive" alt="{{ $i->nama_produk }}">
+                    <div>
+                        <a href="#product-pop-up-{{ $i->id }}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                    </div>
+                    <h3><a href="shop-item.html">{{ $i->nama_produk }}</a></h3>
+                    <div class="pi-price">RP. {{ $i->harga_produk }}</div>
+                    <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
             </div>
-            </div>
+            @endforeach
+        </div>
+        </div>
+        <!-- END SALE PRODUCT -->
+    </div>
+    <!-- END SALE PRODUCT & NEW ARRIVALS -->
+    <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+    <div class="row margin-bottom-40" id="pelet-anchor">
+        <!-- BEGIN SALE PRODUCT -->
+        <div class="col-md-12 sale-product">
+        <h2>Pelet</h2>
+        <div class="owl-carousel owl-carousel5">
+            @foreach($pelets as $pe)
             <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model3.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model3.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                    <img src="/images/{{ $pe->gambar_produk }}" class="img-responsive" alt="{{ $pe->nama_produk }}">
+                    <div>
+                        <a href="#product-pop-up-{{ $pe->id }}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                    </div>
+                    <h3><a href="shop-item.html">{{ $pe->nama_produk }}</a></h3>
+                    <div class="pi-price">RP. {{ $pe->harga_produk }}</div>
+                    <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
             </div>
-            </div>
+            @endforeach
+        </div>
+        </div>
+        <!-- END SALE PRODUCT -->
+    </div>
+    <!-- END SALE PRODUCT & NEW ARRIVALS -->
+    <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
+    <div class="row margin-bottom-40" id="alat-anchor">
+        <!-- BEGIN SALE PRODUCT -->
+        <div class="col-md-12 sale-product">
+        <h2>Alat</h2>
+        <div class="owl-carousel owl-carousel5">
+            @foreach($alats as $a)
             <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model7.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model7.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
+                <div class="product-item">
+                    <div class="pi-img-wrapper">
+                    <img src="/images/{{ $a->gambar_produk }}" class="img-responsive" alt="{{ $a->nama_produk }}">
+                    <div>
+                        <a href="#product-pop-up-{{ $a->id }}" class="btn btn-default fancybox-fast-view">View</a>
+                    </div>
+                    </div>
+                    <h3><a href="shop-item.html">{{ $a->nama_produk }}</a></h3>
+                    <div class="pi-price">RP. {{ $a->harga_produk }}</div>
+                    <a href="#" class="btn btn-default add2cart">Add to cart</a>
                 </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
             </div>
-            </div>
+            @endforeach
         </div>
         </div>
         <!-- END SALE PRODUCT -->
@@ -205,4 +180,34 @@
     <!-- END SALE PRODUCT & NEW ARRIVALS -->
     </div>
 </div>
+@endsection
+
+@section('product-view')
+@foreach($all_produks as $ap)
+<div id="product-pop-up-{{ $ap->id }}" style="display: none; width: 700px;">
+    <div class="product-page product-pop-up">
+        <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-3">
+            <div class="product-main-image">
+            <img src="/images/{{ $ap->gambar_produk }}" alt="{{ $ap->nama_produk }}" class="img-responsive">
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-9">
+            <h2>{{ $ap->nama_produk }}</h2>
+            <div class="price-availability-block clearfix">
+            <div class="price">
+                <strong><span>Rp. </span>{{ $ap->harga_produk }}</strong>
+            </div>
+            <div class="availability">
+                Availability: <strong>In Stock</strong>
+            </div>
+            </div>
+            <div class="description">
+            <p>{{ $ap->desc_produk }}</p>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 @endsection

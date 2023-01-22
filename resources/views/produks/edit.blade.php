@@ -60,6 +60,7 @@
                 <div class="form-group row">
                     <label for="gambar" class="col-sm-2 col-form-label">Gambar</label>
                     <div class="col-sm-10">
+                    <small style="color : red;">Pastikan gambar berukuran 600x800 agar rapi saat ditampilkan di website</small>
                         <input type="file" name="gambar_produk" class="form-control" id="gambar" placeholder="Gambar Produk">
                         <img src="/images/{{ $produk->gambar_produk }}" width="300px">
                     </div>
