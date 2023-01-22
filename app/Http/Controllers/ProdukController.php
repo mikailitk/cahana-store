@@ -14,7 +14,8 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $produks = Produk::latest()->paginate(5);
+        // $produks = Produk::latest()->paginate(5);
+        $produks = Produk::all();
 
         return view('produks.index', compact('produks'));
     }
@@ -42,12 +43,22 @@ class ProdukController extends Controller
             'jenis_produk' => 'required',
             'harga_produk' => 'required',
             'desc_produk' => 'required',
-            'gambar_produk' => 'required',
+            // 'gambar_produk' => 'required',
+            'gambar_produk' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        Produk::create($request->all());
+        $input = $request->all();
 
-        return redirect()->reoute('produks.index')->with('success', 'Produk baru berhasil ditambahkan');
+        if ($image = $request->file('gambar_produk')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['gambar_produk'] = "$profileImage";
+        }
+
+        Produk::create($input);
+
+        return redirect()->route('produks.index')->with('success', 'Produk baru berhasil ditambahkan');
     }
 
     /**
@@ -86,10 +97,21 @@ class ProdukController extends Controller
             'jenis_produk' => 'required',
             'harga_produk' => 'required',
             'desc_produk' => 'required',
-            'gambar_produk' => 'required',
+            // 'gambar_produk' => 'required',
         ]);
 
-        $produk->update($request->all());
+        $input = $request->all();
+
+        if ($image = $request->file('gambar_produk')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['gambar_produk'] = "$profileImage";
+        }else{
+            unset($input['gambar_produk']);
+        }
+
+        $produk->update($input);
 
         return redirect()->route('produks.index')->with('success', 'Produk berhasil di update');
     }
@@ -102,7 +124,7 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
-        $student->delete();
+        $produk->delete();
 
         return redirect()->route('produks.index')->with('success', 'Produk berhasil di hapus');
     }

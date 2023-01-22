@@ -16,25 +16,11 @@ use App\Http\Controllers\ProdukController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
 
-Auth::routes();
+Auth::routes();  
 
-/*------------------------------------------
-All Normal Users Routes List
---------------------------------------------*/
-Route::middleware(['auth', 'user-access:user'])->group(function () {
+Route::get('/home', [HomeController::class, 'index'])->name('home');
   
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
-});
-  
-/*------------------------------------------
-All Admin Routes List
---------------------------------------------*/
-Route::middleware(['auth', 'user-access:admin'])->group(function () {
-  
-    Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin.home');
-});
-
 Route::resource('produks', ProdukController::class);

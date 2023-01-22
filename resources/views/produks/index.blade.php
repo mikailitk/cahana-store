@@ -1,208 +1,81 @@
-@extends('produks.layout')
+@extends('adminlte::page')
+
+@section('title', 'Dashboard Produk')
+
+@section('content_header')
+    <h1>Data Produk</h1>
+@stop
 
 @section('content')
-<!-- BEGIN SLIDER -->
-<div class="page-slider margin-bottom-35">
-    <div id="carousel-example-generic" class="carousel slide carousel-slider">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-        </ol>
+<div class="row">
+    <div class="col-12">
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
+        <div class="card">
+            <div class="card-header">
+            <h3 class="card-title">Data Produk</h3>
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <!-- First slide -->
-            <div class="item carousel-item-four active">
-                <div class="container">
-                    <div class="carousel-position-four text-center">
-                        <h2 class="margin-bottom-20 animate-delay carousel-title-v3 border-bottom-title text-uppercase" data-animation="animated fadeInDown">
-                            Tones of <br/><span class="color-red-v2">Shop UI Features</span><br/> designed
-                        </h2>
-                        <p class="carousel-subtitle-v2" data-animation="animated fadeInUp">Lorem ipsum dolor sit amet constectetuer diam <br/>
-                        adipiscing elit euismod ut laoreet dolore.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Second slide -->
-            <div class="item carousel-item-five">
-                <div class="container">
-                    <div class="carousel-position-four text-center">
-                        <h2 class="animate-delay carousel-title-v4" data-animation="animated fadeInDown">
-                            Unlimted
-                        </h2>
-                        <p class="carousel-subtitle-v2" data-animation="animated fadeInDown">
-                            Layout Options
-                        </p>
-                        <p class="carousel-subtitle-v3 margin-bottom-30" data-animation="animated fadeInUp">
-                            Fully Responsive
-                        </p>
-                        <a class="carousel-btn" href="#" data-animation="animated fadeInUp">See More Details</a>
-                    </div>
-                    <img class="carousel-position-five animate-delay hidden-sm hidden-xs" src="{{ asset('assets/pages/img/shop-slider/slide2/price.png') }}" alt="Price" data-animation="animated zoomIn">
-                </div>
-            </div>
+            <!-- <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-            <!-- Third slide -->
-            <div class="item carousel-item-six">
-                <div class="container">
-                    <div class="carousel-position-four text-center">
-                        <span class="carousel-subtitle-v3 margin-bottom-15" data-animation="animated fadeInDown">
-                            Full Admin &amp; Frontend
-                        </span>
-                        <p class="carousel-subtitle-v4" data-animation="animated fadeInDown">
-                            eCommerce UI
-                        </p>
-                        <p class="carousel-subtitle-v3" data-animation="animated fadeInDown">
-                            Is Ready For Your Project
-                        </p>
-                    </div>
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                    </button>
                 </div>
+                </div>
+            </div> -->
             </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+            <table class="table table-hover text-nowrap">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nama Produk</th>
+                    <th>Jenis Produk</th>
+                    <th>Harga Produk</th>                    
+                    <th rowspan="3">Opsi</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($produks as $p)
+                <tr>
+                    <td>{{ $p->id }}</td>
+                    <td>{{ $p->nama_produk }}</td>
+                    <td>{{ $p->jenis_produk }}</td>
+                    <td>Rp. {{ $p->harga_produk }}</td>
+                    <td>
+                    <form action="{{ route('produks.destroy',$p->id) }}" method="POST">
+                        <a class="btn btn-info" href="{{ route('produks.show',$p->id) }}">Show</a>
+                        <a class="btn btn-primary" href="{{ route('produks.edit',$p->id) }}">Edit</a>
 
-            <!-- Fourth slide -->
-            <div class="item carousel-item-seven">
-                <div class="center-block">
-                    <div class="center-block-wrap">
-                        <div class="center-block-body">
-                            <h2 class="carousel-title-v1 margin-bottom-20" data-animation="animated fadeInDown">
-                                The most <br/>
-                                wanted bijouterie
-                            </h2>
-                            <a class="carousel-btn" href="#" data-animation="animated fadeInUp">But It Now!</a>
-                        </div>
-                    </div>
-                </div>
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                    </td>    
+                </tr> 
+                @endforeach               
+                </tbody>
+            </table>
             </div>
+            <!-- /.card-body -->
         </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control carousel-control-shop" href="#carousel-example-generic" role="button" data-slide="prev">
-            <i class="fa fa-angle-left" aria-hidden="true"></i>
-        </a>
-        <a class="right carousel-control carousel-control-shop" href="#carousel-example-generic" role="button" data-slide="next">
-            <i class="fa fa-angle-right" aria-hidden="true"></i>
-        </a>
+    <!-- /.card -->
     </div>
 </div>
-<!-- END SLIDER -->
+@stop
 
-<div class="main">
-    <div class="container">
-    <!-- BEGIN SALE PRODUCT & NEW ARRIVALS -->
-    <div class="row margin-bottom-40">
-        <!-- BEGIN SALE PRODUCT -->
-        <div class="col-md-12 sale-product">
-        <h2>New Arrivals</h2>
-        <div class="owl-carousel owl-carousel5">
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model1.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model1.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                <div class="sticker sticker-sale"></div>
-            </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model2.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model2.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model6.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model6.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress2</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
-            <div>
-                <div class="product-item">
-                <div class="pi-img-wrapper">
-                    <img src="{{ asset('assets/pages/img/products/model4.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                    <div>
-                    <a href="{{ asset('assets/pages/img/products/model4.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                    </div>
-                </div>
-                <h3><a href="javascript:;">Berry Lace Dress4</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-                <div class="sticker sticker-new"></div>
-                </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model5.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model5.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress5</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model3.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model3.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
-            <div>
-            <div class="product-item">
-                <div class="pi-img-wrapper">
-                <img src="{{ asset('assets/pages/img/products/model7.jpg') }}" class="img-responsive" alt="Berry Lace Dress">
-                <div>
-                    <a href="{{ asset('assets/pages/img/products/model7.jpg') }}" class="btn btn-default fancybox-button">Zoom</a>
-                    <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
-                </div>
-                </div>
-                <h3><a href="shop-item.html">Berry Lace Dress3</a></h3>
-                <div class="pi-price">$29.00</div>
-                <a href="javascript:;" class="btn btn-default add2cart">Add to cart</a>
-            </div>
-            </div>
-        </div>
-        </div>
-        <!-- END SALE PRODUCT -->
-    </div>
-    <!-- END SALE PRODUCT & NEW ARRIVALS -->
-    </div>
-</div>
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    <script> console.log('Hi!'); </script>
+@stop
